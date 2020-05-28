@@ -1,0 +1,91 @@
+conky.config = {
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'below',
+    own_window_colour = '660033',
+    own_window_title = 'NET',
+    double_buffer = true,
+    gap_x = 10,
+    gap_y = 10,
+    alignment = 'top_right',
+    use_xft = true,
+    font = 'Terminus:size=10',
+    xftalpha = 1,
+    override_utf8_locale = true,
+    draw_shades = false,
+    draw_outline = false,
+    default_outline_color = 'black',
+    uppercase = false,
+    default_color = 'ECEAE4',
+    color1 = 'FFFF00',
+    color2 = '01C400',
+    draw_borders = false,
+    stippled_borders = 0,
+    border_inner_margin = 5,
+    border_outer_margin = 0,
+    border_width = 0,
+    draw_graph_borders = false,
+    background = false,
+    use_spacer = 'right',
+    text_buffer_size = 256,
+    no_buffers = true,
+    short_units = true,
+    pad_percents = 2,
+    temperature_unit = 'fahrenheit',
+    update_interval = 1.5
+}
+
+conky.text = [[
+${voffset 10}${font Radio Space:size=15}${alignc}${time %a %d %b %Y}
+${voffset 10}${font Radio Space:size=15}${alignc}${time %I:%M:%S}
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}System ${color slate grey}${hr 2}${font}
+${color1}Computer name      ${alignr}${color}${nodename}
+${color1}Kernel version     ${alignr}${color}${kernel}-${machine}
+${color1}CPU frequency      ${alignr}${color}${freq_g}GHz
+${color1}Load (average)     ${alignr}${color}${loadavg 1}
+${color1}CPU temperature    ${alignr}${color}${acpitemp} degrees Fahrenheit
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Processors ${color slate grey}${hr 2}${font}
+${color1}Kernel 1     ${color}${cpu cpu1}%  ${cpubar cpu1}
+${color1}Kernel 2     ${color}${cpu cpu2}%  ${cpubar cpu2}
+${color1}Kernel 3     ${color}${cpu cpu3}%  ${cpubar cpu3}
+${color1}Kernel 4     ${color}${cpu cpu4}%  ${cpubar cpu4}
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Memory (RAM) ${color slate grey}${hr 2}${font}
+${color1}Memory free / total ${alignr}${color}${memeasyfree} / ${memmax}
+${color1}Now in use   ${color}${memperc}%   ${membar}
+${color1}Virtual memory (swap)  ${alignc}${color}${swap} / ${swapmax} ${color}${alignr}${swapperc} %
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}File system ${color slate grey}${hr 2}${font}
+${color1}Root or /       ${alignc}${color}${fs_used /} / ${fs_size /} ${color}${alignr}${fs_free_perc /} %
+${color}${fs_bar 5,300 /}
+${color1}Home or /home   ${alignc}${color}${fs_used /home} / ${fs_size /home} ${color}${alignr}${fs_free_perc /home} %
+${color}${fs_bar 5,300 /home}
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Top Processes ${color slate grey}${hr 2}${font}
+${color1}Processes     ${alignr}${color}
+Name ${alignr} IO%   CPU%   MEM%${font sans-serif:normal:size=10}
+${top_io name 1} ${alignr} ${top_io io_perc 1} ${top_io cpu 1} ${top_io mem 1}
+${top_io name 2} ${alignr} ${top_io io_perc 2} ${top_io cpu 2} ${top_io mem 2}
+${top_io name 3} ${alignr} ${top_io io_perc 3} ${top_io cpu 3} ${top_io mem 3}
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Vim Tips ${color slate grey}${hr 2}${font}
+${color1}Cursor Movement           Visual Mode ${alignr}${color}
+Cursor move h l j k ${font sans-serif:normal:size=10}        v By letter 
+Top of Screen H ${font sans-serif:normal:size=10}             V By Line
+Bottom Screen L             Ctrl v By Block
+g, G first, last line
+${color1}Split Window                   Tabs ${alignr}${color}
+Ctrl+wv Split Virt  ${font sans-serif:normal:size=10}          :tabnew 
+Ctrl+ws Split Horiz ${font sans-serif:normal:size=10}        :tabclose
+Ctrl+wq Quit Screen       gt goto next tab 
+Ctrl+ww Next Win          :tabedit <file>
+${color1}Editing Command ${alignr}${color}
+i insert mode  ${font sans-serif:normal:size=10}                 dw Delete Word 
+A Append end of line ${font sans-serif:normal:size=10}      x Delete Char 
+o Insert next line             u Undo 
+dd Delete Line                 y Yank 
+]]
+
